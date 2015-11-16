@@ -1,0 +1,58 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Invoice Statement</h1>
+</div>
+<div class="wrapper-md">
+  <div class="col-sm-12">
+          <div class="panel panel-default">
+              <div class="panel-heading font-bold">
+                            Filter
+              </div>
+              <div class="panel-body">
+                  <div class="form-group">
+                    <div class="col-sm-2"></div>
+                        <label class="col-sm-1 control-label">From Date</label>
+                        <div class="col-sm-2">
+                          <input type="date" class="form-control" ng-model="statement.from" required>
+                        </div>
+                        <label class="col-sm-1 control-label">To Date</label>
+                        <div class="col-sm-2">
+                          <input type="date" class="form-control" ng-model="statement.to" required>
+                        </div>
+
+                        <button type="button" class="btn btn-sm btn-primary btn-addon" 
+                        ng-click="filter(statement)"> Filter
+                        </button> 
+                  </div>
+                </div>
+          </div>
+      </div>
+  <div class="panel panel-default">
+    <table st-table="billStatement" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Invoice No.</th>
+        <th>Hukka</th>
+        <th>Extra</th>
+        <th>Amount</th>
+        <th style="width:70px"></th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="bill in billStatement">
+        <td>{{bill.sdate}}</td>
+        <td>{{bill.bill_no}}</td>
+        <td>{{bill.quantity}}</td>
+        <td>{{bill.extra}}</td>
+        <td>{{bill.amount}}</td>
+        <td>
+          <button type="button" ng-click="removeBill($index)" class="btn btn-xs" bs-popover type="button">
+            <i class="fa fa-times">Remove
+            </i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

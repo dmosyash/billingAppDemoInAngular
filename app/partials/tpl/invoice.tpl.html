@@ -1,0 +1,47 @@
+<div class="bg-light lter b-b wrapper-md hidden-print">
+  <a href class="btn btn-sm btn-info pull-right" onClick="window.print();">Print</a>
+  <h1 class="m-n font-thin h3">Invoice</h1>
+</div>
+<div class="wrapper-md" style="position:fixed;top:0px">
+  <div>
+    <i class="fa fa-apple fa fa-3x"></i>
+    <div class="row">
+      <div class="col-xs-6">
+        <h4>Qbila</h4>
+      </div>
+      <div class="col-xs-6 text-right pull-right">
+        <p class="h4">Invoice # <b>{{invoice.no}}</b></p>
+        <h5>Date : <b>{{invoice.real_date}}</b></h5>           
+      </div>
+    </div>
+    <div class="line"></div>
+    <table class="table table-striped bg-white b-a">
+      <thead>
+        <tr>
+          <th>DESCRIPTION</th>
+          <th style="width: 60px">QTY</th>
+          <th style="width: 90px">AMOUNT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="particular in particulars">
+          <td>{{particular.pname}}</td>
+          <td>{{particular.quantity}}</td>
+          <td>{{particular.amount}}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-right"><strong>Subtotal</strong></td>
+          <td>{{invoice.subtotal}}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-right no-border"><strong>Extra Charges</strong></td>
+          <td>{{invoice.extra}}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-right no-border"><strong>Total</strong></td>
+          <td><strong>{{invoice.total}}</strong></td>
+        </tr>
+      </tbody>
+    </table>              
+  </div>
+</div>

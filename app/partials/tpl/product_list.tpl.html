@@ -1,0 +1,32 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Product List</h1>
+</div>
+<div class="wrapper-md">
+ 
+  <div class="panel panel-default">
+    <table st-table="productCollection" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Rate</th>
+        <th style="width:70px"></th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in productCollection">
+        <td>{{item.pname}}</td>
+        <td>{{item.prate}}</td>
+        <td>
+          <button class="btn btn-xs" data-placement="top" ng-click="editItem($index)" bs-popover type="button">
+            <i class="fa fa-edit"></i>Edit
+          </button>
+          <button type="button" ng-click="removeItem($index)" class="btn btn-xs" bs-popover type="button">
+            <i class="fa fa-times">Remove
+            </i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

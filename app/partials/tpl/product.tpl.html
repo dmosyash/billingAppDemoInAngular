@@ -1,0 +1,42 @@
+<!--Add New Item-->
+<div class="panel panel-default">
+    <div class="panel-heading font-bold">
+      {{title}} Item
+    </div>
+    <div class="panel-body">
+ 		<form name="form" class="form-validation form-horizontals">
+      		<div class="panel panel-default">
+                <div class="text-danger wrapper text-center" ng-show="authError">
+                      {{authError}}
+                  </div>
+        		<div class="panel-body">
+  	 				<div class="form-group">
+            			<label class="col-sm-2 control-label">Item Name</label>
+            			<div class="col-sm-10">
+            				<input type="text" class="form-control" ng-model="item.name" required >
+            			</div>
+          			</div>
+    				<div class="line line-dashed b-b line-lg pull-in"></div>
+                   
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Rate</label>
+                        <div class="col-sm-10">
+         					<input type="number" class="form-control" placeholder="Rs." 
+         					ng-model="item.rate" required>
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                    
+                </div>
+			<div class="line line-dashed b-b line-lg pull-in"></div>
+            
+			<footer class="panel-footer text-right bg-light lter">
+      			<!--script type="text/ng-template" id="myModalContent.html">
+        			<div ng-include="'tpl/modal.success.html'"></div>
+     			 </script-->
+    			<button type="submit" class="btn btn-success" ng-disabled="form.$invalid" 
+    			ng-click="$eval(title)();">{{title}}</button>
+            </footer>
+		</form>
+	</div>
+</div>

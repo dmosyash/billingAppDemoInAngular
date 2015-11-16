@@ -1,0 +1,90 @@
+<!--Add New Item-->
+<div class="panel panel-default">
+    <div class="panel-heading font-bold">
+      Invoice
+    </div>
+    <div class="panel-body">
+ 		<form name="form" class="form-validation form-horizontals">
+      		<div class="panel panel-default">
+                <div class="text-danger wrapper text-center" ng-show="authError">
+                      {{authError}}
+                  </div>
+        		<div class="panel-body">
+    	 				<div class="form-group pull-right col-sm-4">
+              			<label class="col-sm-5 control-label">Invoice No.</label>
+              			<div class="col-sm-7">
+              				<input type="text" class="form-control" ng-model="invoice.no" required readonly>
+              			</div>
+            			</div>
+      				<div class="line line-dashed b-b line-lg pull-in"></div>
+                   
+                    <div class="form-group pull-right col-sm-4">
+                        <label class="col-sm-5 control-label">Date</label>
+                        <div class="col-sm-7">
+         					        <input type="date" class="form-control" ng-model="invoice.date" required readonly>
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                    
+            </div>
+			<div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+              <div class="panel-heading font-bold">
+                            Particulars
+                        </div>
+                <div class="panel-body">
+                    <div class="form-group" ng-repeat="particular in particulars">
+                        <label class="col-sm-1 control-label">Item Name</label>
+                        <div class="col-sm-3">
+                                    <!--select class="form-control" ng-options="product.id as product.pname for product in products" ng-model="particular.name" ng-change="setAmount($index)" required ></select-->
+                                    <label class="col-sm-2 control-label">Hukka</label>
+                                </div>
+                                    
+                                <label class="col-sm-1 control-label">Quantity</label>
+                                <div class="col-sm-1">
+                                  <input type="number"  class="form-control" placeholder="Quantity" ng-change="qntChange()"
+                                    ng-model="particular.quantity" autofocus required />
+                                </div>
+
+                                <div class="col-sm-2">
+                                  <button type="button" class="form-control" ng-click="extra()" class="btn btn-default" style="border-radius:50px"
+                                    ng-model="invoice.extra">Extra Person</button>
+                                </div>
+
+                                <label class="col-sm-1 control-label">Amount</label>
+                                <div class="col-sm-2">
+                                  <input type="text"  class="form-control" placeholder="Amount" ng-change="amtChange('{{particular.amount}}')" 
+                                    ng-model="particular.amount" required readonly/>
+                                </div>
+                    </div>    
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-9 control-label" style="text-align:right">Sub Total</label>
+          <div class="col-sm-3">
+            <label class="control-label">{{invoice.subtotal}}</label>
+          </div>
+      </div>
+      <div class="line line-dashed b-b line-lg pull-in"></div>
+      <div class="form-group">
+          <label class="col-sm-9 control-label" style="text-align:right">Extra Charges</label>
+          <div class="col-sm-3">
+            <label class="control-label">{{invoice.extra}}</label>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-9 control-label" style="text-align:right">Total</label>
+          <div class="col-sm-3">
+            <label class="control-label">{{invoice.total}}</label>
+          </div>
+      </div>
+      <div class="line line-dashed b-b line-lg pull-in"></div>
+			<footer class="panel-footer text-right bg-light lter">
+    			<button type="submit" class="btn btn-success" ng-disabled="form.$invalid" 
+    			ng-click="print()">Print</button>
+            </footer>
+		</form>
+	</div>
+</div>

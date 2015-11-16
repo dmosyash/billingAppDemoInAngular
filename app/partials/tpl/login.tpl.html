@@ -1,0 +1,39 @@
+<!--div class="main-image-wrapper">
+    <i class="fa fa-sign-in main-image"></i><p>{{user.email}}</p>
+    </div>
+<form name="signin_form">
+    <input type="email" class="text-input--underbar" placeholder="User Name" ng-model="user.email" required>
+    <input type="password" type="text" class="text-input--underbar" placeholder="Password" ng-model="user.password" required>
+    <br>
+    <div class="signin-button" style="color:red;" ng-if="message">{{user.email}}
+    </div>
+    <br>
+    <button class="button signin-button" ng-disabled="signin_form.$invalid" ng-click="login(user)" >Sign in</button>
+    <br>
+    
+    <button class="button--quiet forgot-password" >Forgot password?</button>
+</form-->
+
+<div class="container w-xxl w-auto-xs">
+  <a href class="navbar-brand block m-t">{{app.name}}</a>
+  <div class="m-b-lg">
+    <form name="form" class="form-validation">
+      <div class="text-danger wrapper text-center" ng-show="authError">
+          {{authError}}
+      </div>
+      <div class="list-group list-group-sm">
+        <div class="list-group-item">
+          <input type="text" placeholder="username" class="form-control no-border" ng-model="user.email" required>
+        </div>
+        <div class="list-group-item">
+           <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login(user)" ng-disabled='form.$invalid'>Log in</button>
+      <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Forgot password?</a></div>
+      <div class="line line-dashed"></div>
+      <p class="text-center"><small>Do not have an account?</small></p>
+      <a ui-sref="access.signup" class="btn btn-lg btn-default btn-block">Create an account</a>
+    </form>
+  </div>
+</div>

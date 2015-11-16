@@ -1,0 +1,16 @@
+<div class="container w-xxl w-auto-xs">
+  <a href class="navbar-brand block m-t">{{app.name}}</a>
+  <div class="m-b-lg">
+    <form name="form" class="form-validation">
+      <div class="text-danger wrapper text-center" ng-show="authError">
+          {{authError}}
+      </div>
+      <div class="list-group list-group-sm">
+        <div class="list-group-item">
+          <select ng-options="city.id as city.cname for city in cities" style="width:100%" ng-model="selected"></select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="select(selected)" ng-disabled='form.$invalid'>Select</button>
+    </form>
+  </div>
+</div>
